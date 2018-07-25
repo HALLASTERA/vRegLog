@@ -19,7 +19,7 @@ from . import views
 urlpatterns = [
     path('', views.login_redirect, name='login_redirect'),
     path('admin/', admin.site.urls),
-    path('account/', include('accounts.urls')),
+    path('account/', include('accounts.urls', namespace='accounts')),
     
 
 ]
