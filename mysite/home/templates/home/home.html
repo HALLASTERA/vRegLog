@@ -3,5 +3,14 @@
 
 
 {% block body %}
-<h1> It works </h1>
+
+<div class="container">
+    <h1> It works </h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">SUBMIT </button>
+    </form>
+</div>
+
 {% endblock %}
