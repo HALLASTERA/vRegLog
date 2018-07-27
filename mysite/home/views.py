@@ -1,7 +1,7 @@
 from django.views.generic import TemplateView
 
 from home.forms import HomeForm
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 
 class HomeView(TemplateView):
@@ -10,3 +10,17 @@ class HomeView(TemplateView):
     def get(self, request):
         form = HomeForm()
         return render(request, self.template_name, {'form': form})
+
+    def post(self, request):
+        form = HomeForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = request.user
+            post.save()
+            text = form.cleaned_data['post']
+            form = HomeForm()
+            return redirect('home:home')
+
+
+        args = {'form': form, 'text': text}
+        return render(request, self.template_name, args)
