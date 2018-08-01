@@ -1,11 +1,12 @@
 from django import forms
-from django.contrib.auth.models import User
-from home.models import Post
+
+from about.models import Post1
 
 
-class UserForm(forms.ModelForm):
-    user = forms.CharField()
-
+class AboutViewF(forms.ModelForm):
+    post = forms.CharField(required=True)
+    post1 = forms.TextInput
     class Meta:
-        model = Post
+        model = Post1
+        fields = ('post', 'post1', )
 

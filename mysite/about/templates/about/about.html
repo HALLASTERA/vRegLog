@@ -2,15 +2,42 @@
 
 
 
+
 {% block body %}
 
 
 <div class="container" >
 
     <h1>Hallo </h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-primary" >Submit</button>
+
+</form>
+
+
 
 </div>
 
+<div class="container-fluid">
 
+    {% for post in posts %}
+    <h1>
+        {{ post.post }}
+    </h1>
+    <h2>
+        {{ post.post1 }}
+    </h2>
+    <p> Posted by  {{ post.user }} -  {{ post.date }}</p>
+
+
+
+    {% endfor %}
+
+</div>
 
 {% endblock %}
+
+
