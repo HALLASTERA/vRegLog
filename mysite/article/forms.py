@@ -8,4 +8,4 @@ class FormArticle(forms.ModelForm):
 
     class Meta:
         model = ModelArticle
-        fields = ['title', 'bodytext',]
+        fields = ('title', 'bodytext', )
