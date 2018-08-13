@@ -7,3 +7,18 @@ class ModelArticle(models.Model):
     bodytext = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, models.SET_NULL, null=True)
+
+
+
+STATUS_CHOICES = (
+    ('d', 'Draft'),
+    ('p', 'Published'),
+    ('w', 'Withdrawn'),
+)
+class Article(models.Model):
+    title1 = models.CharField(max_length=100)
+    body = models.TextField()
+    status = models.CharField(max_length=1, choices=STATUS_CHOICES)
+
+    def __str__(self):
+        return self.title1

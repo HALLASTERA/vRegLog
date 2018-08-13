@@ -13,7 +13,6 @@ class ArticleView(TemplateView):
     def get(self, request):
         form = FormArticle()
         show = ModelArticle.objects.all()
-<<<<<<< HEAD
         args = {'form': form, 'show': show}
         return render(request, self.template_name, args)
 
@@ -30,30 +29,9 @@ class ArticleView(TemplateView):
             return redirect('article:article')
         args = {'form': form, 'stitle': stitle, 'sbodytext': sbodytext}
         return render(request, self.template_name, args)
-=======
-        return render(request, self.template_name, {'form': form, 'show': show}) #
->>>>>>> dd18c8f4052b49c4ffea99a924b772756bd23d7a
 
+#def make_published(request, queryset, modeladmin):
+ #   queryset.update(status='p')
 
+#make_published.short_description = "We mark selected stories as published"
 
-
-    def post(self, request):
-
-        form = FormArticle(request.POST)
-        if form.is_valid():
-            form.save(commit=False )
-            text = form.cleaned_data['title']
-
-        args = {'form': form, 'text': text}
-
-        return render(request, self.template_name, args)
-
-
-
-
- #       form = FormArticle(request.POST)
-   #     text = form.save(['title', 'bodytetext'])
-  #      args = {'form':form, 'text':text}
-  #      return render(request, self.template_name, {'form': form, 'text': text})
-
-# Create your views here.
