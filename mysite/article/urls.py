@@ -7,5 +7,4 @@ app_name = 'article'
 urlpatterns = [
 
     path('', ArticleView.as_view(), name='article'),
-
 ]

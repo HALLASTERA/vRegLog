@@ -15,8 +15,23 @@
     </form>
 
 
-</div>
 
+
+</div>
+<div class="container">
+    <h1>
+        {% for sform in show %}
+        <h2 class="p-3 mb-2 bg-danger text-white" > Title : {{ sform.title }}
+            <br> Body: {{ sform.bodytext }} </br>
+        </h2>
+
+
+        <il>
+            Name :  <b>{{ sform.user }} </b> Date : {{ sform.date }}
+        </il>
+        {% endfor %}
+    </h1>
+</div>
 
 
 {% endblock %}
