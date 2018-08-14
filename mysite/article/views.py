@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from article.forms import FormArticle
-from article.models import ModelArticle
+from article.models import ModelArticle, Article
 
+from django.shortcuts import get_object_or_404
+from . import urls
 
 
 class ArticleView(TemplateView):
@@ -29,6 +31,18 @@ class ArticleView(TemplateView):
             return redirect('article:article')
         args = {'form': form, 'stitle': stitle, 'sbodytext': sbodytext}
         return render(request, self.template_name, args)
+
+
+
+def rush(request, title1_id):
+    idobj = get_object_or_404(Article, pk=title1_id)
+    template_name = 'article/stran.html'
+    args = {'idobj': idobj}
+    return render(request, template_name, args)
+
+
+
+
 
 #def make_published(request, queryset, modeladmin):
  #   queryset.update(status='p')
