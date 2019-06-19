@@ -28,8 +28,7 @@ class RegistrationForm(UserCreationForm):
 
         if commit:
             user.save()
-
-        return user
+            return user
 
 class EditProfileForm(UserChangeForm):
     class Meta:
