@@ -1,12 +1,6 @@
-h2 {
-  color: #1ca1ca;
+body {
+  background-color: #1ca1ca;
 }
-
-.smallerFont {
-  font-size: 34px;:
-  margin-bottom: 10px;
-}
-
-.bigFont {
-  font-size: 88px;
+.myfieldclass {
+  transform: translate(-200px,0)
 }
